@@ -1,29 +1,21 @@
-
 # Define global conversion factors
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5  # This line explicitly defines the factor
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-FAHRENHEIT_OFFSET = 32
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+
 
 def convert_to_celsius(fahrenheit):
-    """
-    Converts a temperature from Fahrenheit to Celsius.
-    Uses the global FAHRENHEIT_TO_CELSIUS_FACTOR for conversion.
-    """
-    return (fahrenheit - FAHRENHEIT_OFFSET) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    """Converts a temperature from Fahrenheit to Celsius."""
+    return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+
 
 def convert_to_fahrenheit(celsius):
-    """
-    Converts a temperature from Celsius to Fahrenheit.
-    Uses the global CELSIUS_TO_FAHRENHEIT_FACTOR for conversion.
-    """
-    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + FAHRENHEIT_OFFSET
+    """Converts a temperature from Celsius to Fahrenheit."""
+    return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+
 
 def main():
-    """
-    Main function to interact with the user for temperature conversion.
-    """
+    """Prompts the user for temperature conversion and displays the result."""
     try:
-        # Prompt user for temperature
         temperature = float(input("Enter the temperature to convert: "))
         unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
 
@@ -37,6 +29,7 @@ def main():
             raise ValueError("Invalid temperature unit. Please enter 'C' or 'F'.")
     except ValueError as e:
         print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     main()
