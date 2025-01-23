@@ -8,10 +8,6 @@ class Book:
         """String representation for a Book instance."""
         return f"Book: {self.title} by {self.author}"
 
-    def display_info(self):
-        """Return a string representation of the book (fallback)."""
-        return self.__str__()
-
 
 class EBook(Book):
     """Derived class for an electronic book."""
@@ -44,16 +40,9 @@ class Library:
         """Add a book to the library."""
         if isinstance(book, Book):
             self.books.append(book)
-            print(f"Added: {book}")
-        else:
-            print("Error: Only instances of Book or its subclasses can be added.")
 
     def list_books(self):
         """List all books in the library."""
-        if not self.books:
-            print("The library has no books.")
-        else:
-            print("Books in the library:")
-            for book in self.books:
-                print(f" - {book}")
+        for book in self.books:
+            print(book)  # This will directly print the string representation (__str__) of each book
 
